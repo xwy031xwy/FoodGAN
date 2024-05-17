@@ -1,0 +1,45 @@
+CONFIG_NAME: '3stages'
+
+DEBUG: 0
+FOOD_TYPE: 'salad'
+EMBEDDING_TYPE: 'cnn-rnn'
+GPU_ID: '0'
+WORKERS: 2
+
+
+# TREE:
+#     BRANCH_NUM: 3
+
+TRAIN:
+    FLAG: True
+    NETWORK_TYPE: 'attn' 
+    NET_G: ''  # '../output/birds_3stages/Model/netG_epoch_700.pth'
+    NET_D: ''  # '../output/birds_3stages/Model/netD'
+    BATCH_SIZE: 16
+    MAX_EPOCH: 600 # 600
+    SNAPSHOT_INTERVAL: 2000
+    DISCRIMINATOR_LR: 0.0002
+    GENERATOR_LR: 0.0002
+    COEFF:
+      UNCOND_LOSS: 0.0
+    SMOOTH:
+        GAMMA1: 1.0 #5.0
+        GAMMA3: 1.0 # 10.0
+        GAMMA2: 1.0 #5.0
+        LAMBDA: 1.0
+
+
+GAN:
+    EMBEDDING_DIM: 256
+    CONDITION_DIM: 128 
+    DF_DIM: 64
+    GF_DIM: 128
+    Z_DIM: 100
+    R_NUM: 2
+    B_CONDITION: True
+
+
+TEXT:
+    EMBEDDING_DIM: 512
+    WORDS_DIM: 256
+    WORDS_NUM: 18
