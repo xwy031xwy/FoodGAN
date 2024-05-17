@@ -1,1 +1,3 @@
 # FoodGAN
+
+## Model Structure
